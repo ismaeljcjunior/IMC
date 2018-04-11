@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+        <style>
+            .textoG{
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: 24px;
+            }
+            .textoT{
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container" style="background: gray; margin-top: 100px; margin-bottom: 100px">
+        <h1 class="text-center border-top text-white textoT ">Caculadora IMC</h1>
+        <form>
+            <div class="form-group">
+                <label class="textoG">Gênero</label><br>
+                <label class="textoG">Idade</label><br>
+                <input type="radio" name="genero">Masculino</input>
+                <input type="radio" name="genero">Feminino</input><br>
+                <label class="textoG">Peso</label>
+                <input type="number"   class="form-control" id="varPeso"  placeholder="Peso em Kg">
+
+            </div>
+            <div class="form-group">
+                <label class="textoG">Altura</label>
+                <input type="number" class="form-control" id="varAltura" placeholder="Altura em centimetros"><br>
+                <button style="margin-bottom: 15px;" type="button" role="button" class="btn btn-primary" onclick="func1()">Calcular</button>
+            </div>
+
+
+
+    </div>
+    </form>
+    </div>
+    <script>
+
+
+        function func1() {
+            var elementoInputPeso = document.getElementById("varPeso");
+            var peso = elementoInputPeso.value;
+            elementoInputPeso.value="";
+            var elementoInputAltura = document.getElementById("varAltura");
+            var altura = elementoInputAltura.value;
+            elementoInputAltura.value="";
+            altura = altura / 100;
+            var resul = peso / (altura * altura);
+            if(peso < 0){
+                alert("VAi toma no cu, digita certo animal");
+                return;
+            }
+            resul = parseInt(resul);
+            console.log(resul);
+            if(resul < 18.6){
+                alert(resul + " " + "Peso abaixo do peso");
+                return;
+            }
+            if(resul > 18.5 && resul =< 25){
+                alert(resul + " " + "Peso normal, Parabens");
+                return;
+            }
+            if(resul > 26 && resul < 30){
+                alert(resul + " " + "Peso acima do normal, cuidado");
+                return;
+            }
+            if(resul > 30){
+                alert(resul + " " + "Cuidado com o infarto. Obeso");
+                return;
+            }
+            
+        }
+
+
+    </script>
+</body>
+
+</html>
